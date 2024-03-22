@@ -59,7 +59,7 @@ for path in part__path_file[path_name].findall(f'.//{{{NAMESPACE}}}t'):
     parent = path.getparent()
     # parent_w_p = parent.getparent()
     # print("aaaaaaaaaaaaaaaa", etree.tostring(parent.getnext()))
-    if  parent.getnext() is None:
+    if parent.getnext() is None:
         print("da het dong")
     if parent_w_p_previos:
         print("vooooooooooo")
@@ -72,14 +72,11 @@ for path in part__path_file[path_name].findall(f'.//{{{NAMESPACE}}}t'):
         if parent.find(f'.//{{{NAMESPACE}}}rPr') is not None:
             path.set("index", str(index))
         elif have_style is not None:
-            print("voô eoiii")
             path_w_t_in_previous = get_previous_tag.find(f'.//{{{NAMESPACE}}}t')
             path_w_t_in_previous.set("index", str(index))
             path.text = ""
         else:
             path.set("index", str(index))
-
-
 
         inputs.append(f"vi: {one_string}")
         index +=1
